@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import BirthChart from "./components/BirthChart";
+import MortalityChart from "./components/MortalityChart";
+import PopulationChart from "./components/PopulationChart";
 
 function App() {
+  const [yearRange, setYearRange] = useState(5);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PopulationChart numOfYears={yearRange} />
+      <BirthChart numOfYears={yearRange} />
+      <MortalityChart numOfYears={yearRange} />
+      <div className="range">
+        1
+        <input
+          type="range"
+          id="range"
+          name="range"
+          min="1"
+          max="5"
+          value={yearRange}
+          onChange={(e) => {
+            setYearRange(+e.target.value);
+          }}
+        />
+        5
+      </div>
     </div>
   );
 }
