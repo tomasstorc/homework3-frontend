@@ -3,15 +3,3 @@
   margin: 10px;
   display: grid;
 }
-.birth-container {
-  grid-row: 1 / 4;
-}
-.mortality-container {
-  grid-row: 2 / 4;
-}
-.population-container {
-  grid-row: 3 / 4;
-}
-.range {
-  grid-column: 2;
-}

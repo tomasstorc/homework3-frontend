@@ -1,32 +1,22 @@
-import { useState } from "react";
 import "./App.css";
-import BirthChart from "./components/BirthChart";
-import MortalityChart from "./components/MortalityChart";
-import PopulationChart from "./components/PopulationChart";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [yearRange, setYearRange] = useState(5);
-
   return (
-    <div className="App">
-      <PopulationChart numOfYears={yearRange} />
-      <BirthChart numOfYears={yearRange} />
-      <MortalityChart numOfYears={yearRange} />
-      <div className="range">
-        1
-        <input
-          type="range"
-          id="range"
-          name="range"
-          min="1"
-          max="5"
-          value={yearRange}
-          onChange={(e) => {
-            setYearRange(+e.target.value);
-          }}
-        />
-        5
-      </div>
+    <div>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Outlet />
     </div>
   );
 }

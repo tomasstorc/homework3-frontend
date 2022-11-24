@@ -31,7 +31,7 @@ type Props = {
 const BirthChart = ({ numOfYears }: Props) => {
   const dataFinal = data.filter((data) => data.year > 2022 - numOfYears);
   return (
-    <div className="birth-container">
+    <div>
       <h2>Živě narození</h2>
       <BarChart
         width={400}

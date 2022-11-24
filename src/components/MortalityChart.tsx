@@ -31,7 +31,7 @@ type Props = {
 const MortalityChart = ({ numOfYears }: Props) => {
   const dataFinal = data.filter((data) => data.year > 2022 - numOfYears);
   return (
-    <div className="mortality-container">
+    <div>
       <h2>Zemřelí</h2>
       <BarChart
         width={400}
