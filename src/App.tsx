@@ -14,6 +14,9 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav>
+          <Nav className="me-auto">
+            <Nav.Link href="/bazar">Autobazar (hw4)</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
       <Outlet />
