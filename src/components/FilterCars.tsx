@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row, Form, Modal, Button } from "react-bootstrap";
-import { cars } from "../cars";
+import { cars, uniqueBrands } from "../cars";
 
 interface fProps {
   show: boolean;
@@ -41,11 +41,13 @@ const FilterCars = ({ show, setShow, filterFn }: fProps) => {
             <Form.Label>Brand</Form.Label>
 
             <Form.Select onChange={handleChange} name="brand">
-              <option selected value={undefined}>
-                All
-              </option>
-              {cars.map((c) => {
-                return <option value={c.brand}>{c.brand}</option>;
+              <option value={undefined}>All</option>
+              {uniqueBrands?.map((b, index) => {
+                return (
+                  <option key={index} value={b}>
+                    {b}
+                  </option>
+                );
               })}
             </Form.Select>
           </Form.Group>
@@ -56,12 +58,10 @@ const FilterCars = ({ show, setShow, filterFn }: fProps) => {
               name="model"
               disabled={!filterData.brand}
             >
-              <option selected value={undefined}>
-                All
-              </option>
-              {cars.map((c) => {
+              <option value={undefined}>All</option>
+              {cars.map((c, index) => {
                 if (c.brand === filterData.brand) {
-                  return <option>{c.model}</option>;
+                  return <option key={index}>{c.model}</option>;
                 } else {
                   return null;
                 }

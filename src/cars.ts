@@ -50,3 +50,10 @@ export const cars: Array<car> = [
     engine: "electro",
   },
 ];
+
+export const uniqueBrands: Array<any> = [];
+cars.forEach((c: car) => {
+  if (!uniqueBrands?.includes(c.brand)) {
+    uniqueBrands.push(c.brand);
+  }
+});

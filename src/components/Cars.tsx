@@ -19,9 +19,9 @@ const Cars = ({ filteredCars }: cProps) => {
           </tr>
         </thead>
         <tbody>
-          {filteredCars.map((c) => {
+          {filteredCars.map((c, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td>{c.brand}</td>
                 <td>{c.model}</td>
                 <td>{c.km.toLocaleString("cs-CZ")}</td>
