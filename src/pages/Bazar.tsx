@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Cars from "../components/Cars";
 import FilterCars from "../components/FilterCars";
 import { car, cars } from "../cars";
 import { Button } from "react-bootstrap";
+import { ColorContext } from "../context/colorSchema.context";
 
 const Bazar = () => {
   const [filteredCars, setFilteredCars] = useState<Array<car>>([]);
@@ -11,7 +12,7 @@ const Bazar = () => {
   }, []);
 
   const [show, setShow] = useState<boolean>(false);
-
+  const { colorSchema } = useContext(ColorContext);
   const filter = (filterData: any) => {
     let tmpArray: Array<car> = cars;
     if (filterData.brand && filterData.brand !== "All") {
@@ -39,7 +40,7 @@ const Bazar = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: colorSchema }}>
       <Button
         onClick={() => {
           setShow(!show);
